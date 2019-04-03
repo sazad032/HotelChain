@@ -13,7 +13,7 @@ public class PostGresConnUtils {
        String hostName = "web0.site.uottawa.ca";
        String port = "15432";
        String userName = "sazad032";
-       String password = "ComicBook1";
+       String password = "password";
   
        return getPostGresConnection(hostName, port, userName, password);
    }
