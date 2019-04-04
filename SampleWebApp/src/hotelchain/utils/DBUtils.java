@@ -131,19 +131,13 @@ public class DBUtils {
             String postalCode = rs.getString("POSTAL_CODE");
             String phoneNumber = rs.getString("PHONE_NUMBER");
             Hotel hotel = new Hotel();
-            hotel.setCity(city);
-            hotel.setCountry(country);
             System.out.println("COUNTRY : " + country);
             hotel.setEmail_Address(email);
             hotel.setHotelID(hotelID);
             hotel.setNumRooms(numRooms);
-            hotel.setPhoneNumber(phoneNumber);
-            hotel.setPostalCode(postalCode);
-            hotel.setProvince(province);
             hotel.setRating(rating);
             System.out.println("RATiNG : " + rating);
-            hotel.setStreetName(streetName);
-            hotel.setStreetNumber(streetNumber);            
+         
             list.add(hotel);
         }
         return list;
@@ -190,9 +184,9 @@ public class DBUtils {
     }
     
     public static void insertHotel(Connection conn, Hotel hotel) throws SQLException {
-    	String sql = "INSERT INTO HOTEL (HOTEL_ID, EMAIL_ADDRESS,NUM_ROOMS,RATING,CITY,"
-    			+ "COUNTRY,PROVINCE,STREET_NAME,STREET_NUMBER,POSTAL_CODE,PHONE_NUMBER)\r\n" 
-    			+ "VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    	String sql = "INSERT INTO HOTEL (HOTEL_ID, EMAIL_ADDRESS, NUM_ROOMS, RATING, "
+    			+ "HOTEL_ADDRESS, PHONE_NUMBERS, HOTEL_NAME)\r\n" + 
+    			"VALUES (?,?, ?, ?, ?, ?, ?);";
     	
     	PreparedStatement pstm = conn.prepareStatement(sql);
     	 
@@ -200,13 +194,10 @@ public class DBUtils {
         pstm.setString(2, hotel.getEmail_Address());
         pstm.setInt(3, hotel.getNumRooms());
         pstm.setFloat(4, hotel.getRating());
-        pstm.setString(5, hotel.getCity());
-        pstm.setString(6, hotel.getCountry());
-        pstm.setString(7, hotel.getProvince());
-        pstm.setString(8, hotel.getStreetName());
-        pstm.setInt(9, hotel.getStreetNumber());
-        pstm.setString(10, hotel.getPostalCode());
-        pstm.setString(11, hotel.getPhoneNumber());
+        pstm.setString(5, hotel.getHotel_address());
+        pstm.setString(6, hotel.getPhoneNumbers());
+        pstm.setString(7, hotel.getHotel_name());
+        
 
  
         pstm.executeUpdate();    	

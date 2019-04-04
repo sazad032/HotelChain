@@ -88,12 +88,13 @@ public class JDBCFilter implements Filter {
             try {
                 // Create a Connection.
                 conn = ConnectionUtils.getConnection();
+                System.out.println("Connection establised");
                 // Set outo commit to false.
                 conn.setAutoCommit(false);
  
                 // Store Connection object in attribute of request.
                 MyUtils.storeConnection(request, conn);
- 
+                System.out.println("MIGHT CONNECT");
                 // Allow request to go forward
                 // (Go to the next filter or target)
                 chain.doFilter(request, response);

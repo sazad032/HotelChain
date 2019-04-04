@@ -51,7 +51,7 @@ public class EnterHotel extends HttpServlet {
         
         String hotelID = (String) request.getParameter("hotelID");
         System.out.println("Hotel " + hotelID);
-        String email = (String) request.getParameter("email_Address");
+        String email_Address = (String) request.getParameter("email_Address");
         System.out.println("EMAI:");
         
         String numRoomStr = (String) request.getParameter("numRooms");
@@ -69,19 +69,10 @@ public class EnterHotel extends HttpServlet {
         }
         
         System.out.println("Rating " + rating);
-        String city = (String) request.getParameter("city");
-        System.out.println("City " + city);
-        String country = (String) request.getParameter("country");
-        String province = (String) request.getParameter("province");
-        String streetName = (String) request.getParameter("streetName");
-        String streetNumberStr = (String) request.getParameter("streetNumber");
-        int streetNumber = 0;
-        try {
-            streetNumber = Integer.parseInt(streetNumberStr);
-        } catch (Exception e) {
-        }
-        String postalCode = (String) request.getParameter("postalCode");
+
+        String hotel_address = (String) request.getParameter("hotel_address");
         String phoneNumber = (String) request.getParameter("phoneNumber");
+        String hotel_name = (String) request.getParameter("hotel_name");
         /*float price = 0;
         try {
             price = Float.parseFloat(priceStr);
@@ -89,8 +80,7 @@ public class EnterHotel extends HttpServlet {
         }
         Product product = new Product(code, name, price);
  		*/
-        Hotel hotel = new Hotel(hotelID, email, numRooms,rating, city, country, province, streetName, streetNumber, postalCode,
-        		phoneNumber);
+        Hotel hotel = new Hotel(hotelID, email_Address, numRooms, rating, hotel_address, phoneNumber, hotel_name);
         String errorString = null;
  
         // Product ID is the string literal [a-zA-Z_0-9]

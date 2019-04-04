@@ -30,6 +30,7 @@ public class PostGresConnUtils {
   
        Connection conn = DriverManager.getConnection(connectionURL, userName,
                password);
+       System.out.println("Working");
        return conn;
    }
 }

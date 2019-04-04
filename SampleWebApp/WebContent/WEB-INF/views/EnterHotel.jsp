@@ -30,8 +30,9 @@
                <td>Email Address</td>
                <td><input type="text" name="email_Address" value="${hotel.email_Address}" /></td>
             </tr>
-            <tr>
-               <td>Room Number</td>
+
+			<tr>
+               <td>Number of Rooms</td>
                <td><input type="text" name="numRooms" value="${hotel.numRooms}" /></td>
             </tr>
             <tr>
@@ -39,32 +40,16 @@
                <td><input type="text" name="rating" value="${hotel.rating}" /></td>
             </tr>
             <tr>
-               <td>City</td>
-               <td><input type="text" name="city" value="${hotel.city}" /></td>
-            </tr>
-            <tr>
-               <td>Country</td>
-               <td><input type="text" name="country" value="${hotel.country}" /></td>
-            </tr>
-            <tr>
-               <td>Province</td>
-               <td><input type="text" name="province" value="${hotel.province}" /></td>
-            </tr>
-            <tr>
-               <td>Street Name</td>
-               <td><input type="text" name="streetName" value="${hotel.streetName}" /></td>
-            </tr>
-            <tr>
-               <td>Street Number</td>
-               <td><input type="text" name="streetNumber" value="${hotel.streetNumber}" /></td>
-            </tr>
-            <tr>
-               <td>Postal Code</td>
-               <td><input type="text" name="postalCode" value="${hotel.postalCode}" /></td>
+               <td>Hotel Address</td>
+               <td><input type="text" name="hotel_address" value="${hotel.hotel_address}" /></td>
             </tr>
             <tr>
                <td>Phone Number</td>
                <td><input type="text" name="phoneNumber" value="${hotel.phoneNumber}" /></td>
+            </tr>
+            <tr>
+               <td>Hotel Name</td>
+               <td><input type="text" name="hotel_name" value="${hotel.hotel_name}" /></td>
             </tr>
             <tr>
                <td colspan="2">                   

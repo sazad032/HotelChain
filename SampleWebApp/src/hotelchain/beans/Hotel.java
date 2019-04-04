@@ -6,31 +6,23 @@ public class Hotel {
 		String email_Address;
 		int numRooms;
 		float rating;
-		String city;
-		String country;
-		String province;
-		String streetName;
-		int streetNumber;
-		String postalCode;
-		String phoneNumber;
+		String hotel_address;
+		String phoneNumbers;
+		String hotel_name;
 	 
 	   public Hotel() {
 	 
 	   }
 	 
-	   public Hotel(String hotelID, String email_Address,int numRooms,float rating, String city,String country,
-		String province,String streetName,int streetNumber,	String postalCode,String phoneNumber) {
+	   public Hotel(String hotelID, String email_Address,int numRooms,float rating, String hotel_address,String phoneNumbers,
+			   String hotel_name) {
 		   this.hotelID = hotelID;
 		   this.email_Address = email_Address;
 		   this.numRooms = numRooms;
 		   this.rating = rating;
-		   this.city = city;
-		   this.country = country;
-		   this.province = province;
-		   this.streetName = streetName;
-		   this.streetNumber = streetNumber;
-		   this.postalCode = postalCode;
-		   this.phoneNumber = phoneNumber;
+		   this.hotel_address = hotel_address;
+		   this.hotel_name = hotel_name;
+		   this.phoneNumbers = phoneNumbers;
 	   }
 
 	/**
@@ -90,102 +82,48 @@ public class Hotel {
 	}
 
 	/**
-	 * @return the city
+	 * @return the hotel_address
 	 */
-	public String getCity() {
-		return city;
+	public String getHotel_address() {
+		return hotel_address;
 	}
 
 	/**
-	 * @param city the city to set
+	 * @param hotel_address the hotel_address to set
 	 */
-	public void setCity(String city) {
-		this.city = city;
+	public void setHotel_address(String hotel_address) {
+		this.hotel_address = hotel_address;
 	}
 
 	/**
-	 * @return the country
+	 * @return the phoneNumbers
 	 */
-	public String getCountry() {
-		return country;
+	public String getPhoneNumbers() {
+		return phoneNumbers;
 	}
 
 	/**
-	 * @param country the country to set
+	 * @param phoneNumbers the phoneNumbers to set
 	 */
-	public void setCountry(String country) {
-		this.country = country;
+	public void setPhoneNumbers(String phoneNumbers) {
+		this.phoneNumbers = phoneNumbers;
 	}
 
 	/**
-	 * @return the province
+	 * @return the hotel_name
 	 */
-	public String getProvince() {
-		return province;
+	public String getHotel_name() {
+		return hotel_name;
 	}
 
 	/**
-	 * @param province the province to set
+	 * @param hotel_name the hotel_name to set
 	 */
-	public void setProvince(String province) {
-		this.province = province;
+	public void setHotel_name(String hotel_name) {
+		this.hotel_name = hotel_name;
 	}
 
-	/**
-	 * @return the streetName
-	 */
-	public String getStreetName() {
-		return streetName;
-	}
-
-	/**
-	 * @param streetName the streetName to set
-	 */
-	public void setStreetName(String streetName) {
-		this.streetName = streetName;
-	}
-
-	/**
-	 * @return the streetNumber
-	 */
-	public int getStreetNumber() {
-		return streetNumber;
-	}
-
-	/**
-	 * @param streetNumber the streetNumber to set
-	 */
-	public void setStreetNumber(int streetNumber) {
-		this.streetNumber = streetNumber;
-	}
-
-	/**
-	 * @return the postalCode
-	 */
-	public String getPostalCode() {
-		return postalCode;
-	}
-
-	/**
-	 * @param postalCode the postalCode to set
-	 */
-	public void setPostalCode(String postalCode) {
-		this.postalCode = postalCode;
-	}
-
-	/**
-	 * @return the phoneNumber
-	 */
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	/**
-	 * @param phoneNumber the phoneNumber to set
-	 */
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
+	
 	   
 	   
 	   
