@@ -14,5 +14,7 @@
    <a href="${pageContext.request.contextPath}/HotelListServlet">Hotel</a>
    |
    <a href="${pageContext.request.contextPath}/Room">Room</a>
+   |
+   <a href="${pageContext.request.contextPath}/EnterHotel">Create Hotel</a>
     
 </div>  

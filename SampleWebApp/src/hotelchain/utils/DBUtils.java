@@ -188,6 +188,30 @@ public class DBUtils {
  
         pstm.executeUpdate();
     }
+    
+    public static void insertHotel(Connection conn, Hotel hotel) throws SQLException {
+    	String sql = "INSERT INTO HOTEL (HOTEL_ID, EMAIL_ADDRESS,NUM_ROOMS,RATING,CITY,"
+    			+ "COUNTRY,PROVINCE,STREET_NAME,STREET_NUMBER,POSTAL_CODE,PHONE_NUMBER)\r\n" 
+    			+ "VALUES (?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+    	
+    	PreparedStatement pstm = conn.prepareStatement(sql);
+    	 
+        pstm.setString(1, hotel.getHotelID());
+        pstm.setString(2, hotel.getEmail_Address());
+        pstm.setInt(3, hotel.getNumRooms());
+        pstm.setFloat(4, hotel.getRating());
+        pstm.setString(5, hotel.getCity());
+        pstm.setString(6, hotel.getCountry());
+        pstm.setString(7, hotel.getProvince());
+        pstm.setString(8, hotel.getStreetName());
+        pstm.setInt(9, hotel.getStreetNumber());
+        pstm.setString(10, hotel.getPostalCode());
+        pstm.setString(11, hotel.getPhoneNumber());
+
+ 
+        pstm.executeUpdate();    	
+    	
+    }
  
     public static void deleteProduct(Connection conn, String code) throws SQLException {
         String sql = "Delete From Product where Code= ?";
