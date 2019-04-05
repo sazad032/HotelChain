@@ -29,7 +29,7 @@ public class PostGresConnUtils {
        String connectionURL = "jdbc:postgresql://localhost/postgres";
   
        Connection conn = DriverManager.getConnection(connectionURL, "postgres",
-    		   "L9EWO1IV");
+    		   "password");
        System.out.println("Working");
        return conn;
    }
