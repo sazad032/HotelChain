@@ -8,21 +8,25 @@ public class Room {
 	String view;
 	boolean extendable;
 	String capacity;
+	String ammenities;
 	String damages;
 	String hotelID;
+	String status;
 	
 	public Room() {
 		
 	}
 	
-	public Room(String roomNum, double price, String view, boolean extendable, String capacity, String damages, String hotelID) {
+	public Room(String roomNum, double price, String view, boolean extendable, String capacity,String ammenities, String damages, String hotelID,String status) {
 		this.roomNum = roomNum;
 		this.price = price;
 		this.view = view;
 		this.extendable = extendable;
 		this.capacity = capacity;
+		this.ammenities = ammenities;
 		this.damages = damages;
-		this.hotelID = hotelID;		
+		this.hotelID = hotelID;
+		this.status = status;
 	}
 
 	/**
@@ -122,5 +126,35 @@ public class Room {
 	public void setHotelID(String hotelID) {
 		this.hotelID = hotelID;
 	}
+
+	/**
+	 * @return the ammenities
+	 */
+	public String getAmmenities() {
+		return ammenities;
+	}
+
+	/**
+	 * @param ammenities the ammenities to set
+	 */
+	public void setAmmenities(String ammenities) {
+		this.ammenities = ammenities;
+	}
+
+	/**
+	 * @return the status
+	 */
+	public String getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status the status to set
+	 */
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
+	
 
 }

@@ -1,6 +1,5 @@
 package hotelchain.servlet;
 
-
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -13,22 +12,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import hotelchain.beans.Hotel;
-import hotelchain.beans.HotelChain;
+import hotelchain.beans.Room;
 import hotelchain.utils.DBUtils;
 import hotelchain.utils.MyUtils;
 
 /**
- * Servlet implementation class HotelListServlet
+ * Servlet implementation class BookRooms
  */
-@WebServlet(urlPatterns = { "/HotelListServlet"})
-public class HotelListServlet extends HttpServlet {
+@WebServlet("/BookRooms")
+public class BookRooms extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HotelListServlet() {
+    public BookRooms() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,23 +36,11 @@ public class HotelListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Connection conn = MyUtils.getStoredConnection(request);
-		 
-        String errorString = null;
-        List<Hotel> list = null;
-        try {
-            list = DBUtils.queryHotel(conn);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            errorString = e.getMessage();
-        }
-        // Store info in request attribute, before forward to views
-        request.setAttribute("errorString", errorString);
-        request.setAttribute("hotelList", list);
+		
          
         // Forward to /WEB-INF/views/productListView.jsp
         RequestDispatcher dispatcher = request.getServletContext()
-                .getRequestDispatcher("/WEB-INF/views/hotelListView.jsp");
+                .getRequestDispatcher("/WEB-INF/views/BookingView.jsp");
         dispatcher.forward(request, response);
 	}
 

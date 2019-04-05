@@ -1,9 +1,9 @@
 package hotelchain.servlet;
- 
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
- 
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,69 +13,65 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import hotelchain.beans.Customer;
+import hotelchain.beans.Employee;
 import hotelchain.utils.DBUtils;
 import hotelchain.utils.MyUtils;
- 
-@WebServlet(urlPatterns = { "/login" })
-public class LoginServlet extends HttpServlet {
-    private static final long serialVersionUID = 1L;
- 
-    public LoginServlet() {
+
+/**
+ * Servlet implementation class EmployeeLogInServlet
+ */
+@WebServlet(urlPatterns = { "/EmployeeLogInServlet" })
+public class EmployeeLogInServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public EmployeeLogInServlet() {
         super();
+        // TODO Auto-generated constructor stub
     }
- 
-    // Show Login page.
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
- 
-        // Forward to /WEB-INF/views/loginView.jsp
-        // (Users can not access directly into JSP pages placed in WEB-INF)
-    	System.out.println("GETTING");
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		System.out.println("GETTING EMPLOYEE");
         RequestDispatcher dispatcher //
-                = this.getServletContext().getRequestDispatcher("/WEB-INF/views/loginView.jsp");
+                = this.getServletContext().getRequestDispatcher("/WEB-INF/views/EmployeeLogIn.jsp");
  
         dispatcher.forward(request, response);
- 
-    }
- 
-    // When the user enters userName & password, and click Submit.
-    // This method will be executed.
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-    	System.out.println("IN THE POST");
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		System.out.println("IN THE POST");
         String userName = request.getParameter("userName");
-        String password = request.getParameter("password");
-        System.out.println("password " + password);
+        String sin = request.getParameter("sin");
+        System.out.println("password as SIN number" + sin);
         String rememberMeStr = request.getParameter("rememberMe");
         boolean remember = "Y".equals(rememberMeStr);
  
-        Customer user = null;
+        Employee user = null;
         boolean hasError = false;
         String errorString = null;
  
-        if (userName == null || password == null || userName.length() == 0 || password.length() == 0) {
+        if (userName == null || sin == null || userName.length() == 0 || sin.length() == 0) {
             hasError = true;
-            errorString = "Required username and password!";
+            errorString = "Required username and SIN number!";
         } else {
             Connection conn = MyUtils.getStoredConnection(request);
             try {
                 // Find the user in the DB.
-                user = DBUtils.findUser(conn, userName);                
-                String passwordToCompare = DBUtils.findPassword(conn, userName);
-                System.out.println("THE password is" + passwordToCompare);
-                
-                if (!password.equals(passwordToCompare)) {
-                    System.out.println("NOT THE SAME PASSWORD");
-                	hasError = true;
-                    errorString = "User Name or password invalid";
-                }
-                
+                user = DBUtils.findEmployee(conn, userName);
  
                 if (user == null) {
                     hasError = true;
-                    errorString = "User Name or password invalid";
+                    errorString = "User Name or SIN invalid";
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -85,9 +81,9 @@ public class LoginServlet extends HttpServlet {
         }
         // If error, forward to /WEB-INF/views/login.jsp
         if (hasError) {
-            user = new Customer();
+            user = new Employee();
             user.setName(userName);
-            user.setPassword(password);
+            user.setSin(sin);
  
             // Store information in request attribute, before forward.
             request.setAttribute("errorString", errorString);
@@ -95,7 +91,7 @@ public class LoginServlet extends HttpServlet {
  
             // Forward to /WEB-INF/views/login.jsp
             RequestDispatcher dispatcher //
-                    = this.getServletContext().getRequestDispatcher("/WEB-INF/views/loginView.jsp");
+                    = this.getServletContext().getRequestDispatcher("/WEB-INF/views/EmployeeLoginView.jsp");
  
             dispatcher.forward(request, response);
         }
@@ -104,11 +100,12 @@ public class LoginServlet extends HttpServlet {
         // And redirect to userInfo page.
         else {
             HttpSession session = request.getSession();
-            MyUtils.storeLoginedUser(session, user);
+            System.out.println("BEFORE CACHING");
+            MyUtils.storeLoginedEmployee(session, user);
  
             // If user checked "Remember me".
             if (remember) {
-                MyUtils.storeUserCookie(response, user);
+                MyUtils.storeEmployeeCookie(response, user);
             }
             // Else delete cookie.
             else {
@@ -116,8 +113,8 @@ public class LoginServlet extends HttpServlet {
             }
             System.out.println("Almost There");
             // Redirect to userInfo page.
-            response.sendRedirect(request.getContextPath() + "/userInfo");
+            response.sendRedirect(request.getContextPath() + "/EmployeeInfo");
         }
     }
- 
+
 }

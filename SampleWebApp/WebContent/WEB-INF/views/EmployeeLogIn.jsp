@@ -10,19 +10,19 @@
       <jsp:include page="_header.jsp"></jsp:include>
       <jsp:include page="_menu.jsp"></jsp:include>
  
-      <h3>Login Page</h3>
+      <h3>Employee Log In Page</h3>
       <p style="color: red;">${errorString}</p>
  
  
-      <form method="POST" action="${pageContext.request.contextPath}/login">
+      <form method="POST" action="${pageContext.request.contextPath}/EmployeeLogInServlet">
          <table border="0">
             <tr>
                <td>User Name</td>
                <td><input type="text" name="userName" value= "${user.name}" /> </td>
             </tr>
             <tr>
-               <td>Password</td>
-               <td><input type="text" name="password" value= "${user.password}" /> </td>
+               <td>SIN</td>
+               <td><input type="text" name="sin" value= "${user.sin}" /> </td>
             </tr>
 
             <tr>

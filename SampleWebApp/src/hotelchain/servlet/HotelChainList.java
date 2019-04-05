@@ -1,6 +1,5 @@
 package hotelchain.servlet;
 
-
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -19,16 +18,16 @@ import hotelchain.utils.DBUtils;
 import hotelchain.utils.MyUtils;
 
 /**
- * Servlet implementation class HotelListServlet
+ * Servlet implementation class HotelChain
  */
-@WebServlet(urlPatterns = { "/HotelListServlet"})
-public class HotelListServlet extends HttpServlet {
+@WebServlet(urlPatterns = { "/HotelChain"})
+public class HotelChainList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HotelListServlet() {
+    public HotelChainList() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -41,21 +40,23 @@ public class HotelListServlet extends HttpServlet {
 		Connection conn = MyUtils.getStoredConnection(request);
 		 
         String errorString = null;
-        List<Hotel> list = null;
+        List<HotelChain> list = null;
         try {
-            list = DBUtils.queryHotel(conn);
+            list = DBUtils.queryHotelChain(conn);
         } catch (SQLException e) {
             e.printStackTrace();
             errorString = e.getMessage();
         }
         // Store info in request attribute, before forward to views
         request.setAttribute("errorString", errorString);
-        request.setAttribute("hotelList", list);
+        request.setAttribute("hotelChainList", list);
          
         // Forward to /WEB-INF/views/productListView.jsp
         RequestDispatcher dispatcher = request.getServletContext()
-                .getRequestDispatcher("/WEB-INF/views/hotelListView.jsp");
+                .getRequestDispatcher("/WEB-INF/views/HotelChainList.jsp");
         dispatcher.forward(request, response);
+
+		
 	}
 
 	/**

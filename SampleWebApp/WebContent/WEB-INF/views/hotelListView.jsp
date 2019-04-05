@@ -22,33 +22,32 @@
           <th>EMAIL_ADDRESS</th>
           <th>NUM_ROOMS</th>
           <th>RATING</th>
-          <th>CITY</th>
-          <th>COUNTRY</th>
-          <th>PROVINCE</th>
-          <th>STREET_NAME</th>
-          <th>STREET_NUMBER</th>
-          <th>POSTAL_CODE</th>
-          <th>PHONE_NUMBER</th>
+          <th>HOTEL_ADDRESS</th>
+          <th>HOTEL_NAME</th>
+          <th>PHONE_NUMBERS</th>
+          <th>ROOMS</th>
        </tr>
+       
+
        <c:forEach items="${hotelList}" var="hotel" >
           <tr>
              <td>${hotel.hotelID}</td>
              <td>${hotel.email_Address}</td>
              <td>${hotel.numRooms}</td>
              <td>${hotel.rating}</td>
-             <td>${hotel.city}</td>
-             <td>${hotel.country}</td>
-             <td>${hotel.province}</td>
-             <td>${hotel.streetName}</td>
-             <td>${hotel.streetNumber}</td>
-             <td>${hotel.postalCode}</td>
-             <td>${hotel.phoneNumber}</td>             
+             <td>${hotel.hotel_address}</td>
+             <td>${hotel.hotel_name}</td>
+             <td>${hotel.phoneNumbers}</td>
+             <td>
+                <a href="ViewRooms?hotelID=${hotel.hotelID}">VIEW ROOMS</a>
+             </td> 
+        
 
           </tr>
        </c:forEach>
     </table>
  
- 
+ 	<a href="EnterHotel" >Enter New Hotel Info</a>
     <jsp:include page="_footer.jsp"></jsp:include>
  
  </body>

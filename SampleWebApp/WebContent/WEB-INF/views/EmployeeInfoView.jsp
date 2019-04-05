@@ -13,7 +13,7 @@
  
     <h3>Hello: ${user.name}</h3>
  
-    User Name: <b>${user.name}</b>
+    Employee Name: <b>${user.name}</b>
     |
  	<a href="${pageContext.request.contextPath}/HotelChain">Hotel Chain</a>
     <jsp:include page="_footer.jsp"></jsp:include>

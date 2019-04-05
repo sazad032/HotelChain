@@ -10,10 +10,10 @@ public class PostGresConnUtils {
            throws ClassNotFoundException, SQLException {
   
        // Note: Change the connection parameters accordingly.
-       String hostName = "web0.site.uottawa.ca";
-       String port = "15432";
-       String userName = "username";
-       String password = "password";
+       String hostName = "localhost";
+       String port = "5432";
+       String userName = "postgres";
+       String password = "L9EWO1IV";
   
        return getPostGresConnection(hostName, port, userName, password);
    }
@@ -26,10 +26,10 @@ public class PostGresConnUtils {
   
        // URL Connection for Postgresql
        //jdbc:postgresql://web0.site.uottawa.ca:15432/svale054
-       String connectionURL = "jdbc:postgresql://" + hostName + ":" + port + "/" + userName;
+       String connectionURL = "jdbc:postgresql://localhost/postgres";
   
-       Connection conn = DriverManager.getConnection(connectionURL, userName,
-               password);
+       Connection conn = DriverManager.getConnection(connectionURL, "postgres",
+    		   "L9EWO1IV");
        System.out.println("Working");
        return conn;
    }

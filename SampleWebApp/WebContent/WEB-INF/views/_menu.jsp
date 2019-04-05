@@ -6,12 +6,13 @@
    <a href="${pageContext.request.contextPath}/">Home</a>
    |
    <a href="${pageContext.request.contextPath}/productList">Product List</a>
+
    |
-   <a href="${pageContext.request.contextPath}/userInfo">My Account Info</a>
-   |
-   <a href="${pageContext.request.contextPath}/login">Login</a>
+   <a href="${pageContext.request.contextPath}/login">Customer Login</a>
    |
    <a href="${pageContext.request.contextPath}/HotelListServlet">Hotel</a>
+   |
+   <a href="${pageContext.request.contextPath}/HotelChain">Hotel Chain</a>
    |
    <a href="${pageContext.request.contextPath}/Room">Room</a>
    |

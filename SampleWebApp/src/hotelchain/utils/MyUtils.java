@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import hotelchain.beans.UserAccount;
+import hotelchain.beans.Customer;
+import hotelchain.beans.Employee;
  
 public class MyUtils {
  
@@ -29,21 +30,21 @@ public class MyUtils {
     }
  
     // Store user info in Session.
-    public static void storeLoginedUser(HttpSession session, UserAccount loginedUser) {
+    public static void storeLoginedUser(HttpSession session, Customer loginedUser) {
         // On the JSP can access via ${loginedUser}
         session.setAttribute("loginedUser", loginedUser);
     }
  
     // Get the user information stored in the session.
-    public static UserAccount getLoginedUser(HttpSession session) {
-        UserAccount loginedUser = (UserAccount) session.getAttribute("loginedUser");
+    public static Customer getLoginedUser(HttpSession session) {
+        Customer loginedUser = (Customer) session.getAttribute("loginedUser");
         return loginedUser;
     }
  
     // Store info in Cookie
-    public static void storeUserCookie(HttpServletResponse response, UserAccount user) {
+    public static void storeUserCookie(HttpServletResponse response, Customer user) {
         System.out.println("Store user cookie");
-        Cookie cookieUserName = new Cookie(ATT_NAME_USER_NAME, user.getUserName());
+        Cookie cookieUserName = new Cookie(ATT_NAME_USER_NAME, user.getName());
         // 1 day (Converted to seconds)
         cookieUserName.setMaxAge(24 * 60 * 60);
         response.addCookie(cookieUserName);
@@ -68,5 +69,27 @@ public class MyUtils {
         cookieUserName.setMaxAge(0);
         response.addCookie(cookieUserName);
     }
+
+	public static void storeEmployeeCookie(HttpServletResponse response, Employee user) {
+		// TODO Auto-generated method stub
+		System.out.println("Store user cookie");
+        Cookie cookieUserName = new Cookie(ATT_NAME_USER_NAME, user.getName());
+        // 1 day (Converted to seconds)
+        cookieUserName.setMaxAge(24 * 60 * 60);
+        response.addCookie(cookieUserName);
+		
+	}
+
+	public static void storeLoginedEmployee(HttpSession session, Employee user) {
+		// On the JSP can access via ${loginedUser}
+        session.setAttribute("loginedEmployee", user);
+		
+	}
+
+	public static Employee getLoginedEmployee(HttpSession session) {
+		// TODO Auto-generated method stub
+		Employee loginedUser = (Employee) session.getAttribute("loginedEmployee");
+        return loginedUser;
+	}
  
 }

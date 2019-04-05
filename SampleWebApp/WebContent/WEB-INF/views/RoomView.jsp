@@ -23,8 +23,11 @@
           <th>VIEW</th>
           <th>EXTENDABLE</th>
           <th>CAPACITY</th>
+          <th>AMMENITIES</th>
           <th>DAMAGES</th>
           <th>HOTEL_ID</th>
+          <th>STATUS</th>
+          <th>BOOKING</th>
 
        </tr>
        <c:forEach items="${RoomList}" var="Room" >
@@ -35,8 +38,13 @@
              <td>${Room.view}</td>
              <td>${Room.extendable}</td>
              <td>${Room.capacity}</td>
+             <td>${Room.ammenities}</td>
              <td>${Room.damages}</td>
              <td>${Room.hotelID}</td>
+             <td>${Room.status}</td>
+             <td>
+                <a href="BookRooms?roomNum=${Room.roomNum}">BOOK</a>
+             </td> 
              
 
           </tr>

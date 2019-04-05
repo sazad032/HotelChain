@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import hotelchain.beans.UserAccount;
+import hotelchain.beans.Customer;
 import hotelchain.utils.MyUtils;
  
 @WebServlet(urlPatterns = { "/userInfo" })
-public class UserInfoServlet extends HttpServlet {
+public class CustomerServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
  
-    public UserInfoServlet() {
+    public CustomerServlet() {
         super();
     }
  
@@ -27,7 +27,7 @@ public class UserInfoServlet extends HttpServlet {
         HttpSession session = request.getSession();
  
         // Check User has logged on
-        UserAccount loginedUser = MyUtils.getLoginedUser(session);
+        Customer loginedUser = MyUtils.getLoginedUser(session);
  
         // Not logged in
         if (loginedUser == null) {
