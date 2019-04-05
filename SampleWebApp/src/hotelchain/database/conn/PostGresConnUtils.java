@@ -13,7 +13,7 @@ public class PostGresConnUtils {
        String hostName = "localhost";
        String port = "5432";
        String userName = "postgres";
-       String password = "L9EWO1IV";
+       String password = "password";
   
        return getPostGresConnection(hostName, port, userName, password);
    }
